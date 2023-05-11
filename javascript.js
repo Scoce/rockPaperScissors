@@ -1,11 +1,12 @@
-/* 
-Gets a random number between 1 and 3 and assigns the text Rock, Paper, or Scissors the choice variable based on the number created.
-*/
+/* Set some global variables to hold scores and how many games played */
 let computerScore = 0;
 let playerScore=0;
 let tie=0;
 let count=0;
 
+/* 
+Gets a random number between 1 and 3 and assigns the text Rock, Paper, or Scissors the choice variable based on the number created.
+*/
 function getComputerChoice() {
     let number = Math.floor((Math.random()* 3)+1);
     let choice = "";
@@ -20,14 +21,14 @@ function getComputerChoice() {
     }
     return choice;      
 }
-
+/* Gets the player's choice and sets it to lower so they player can enter Rock, ROCK, or rock and it still works.  Does not yet handle other erroneous input. */
 function getPlayerChoice() {
     let choice = prompt("Enter Rock, Paper, or Scissors.");
     let lowerChoice = choice.toLowerCase();
     return lowerChoice;
 }
 
-
+/* Main game logic.  Gets both the computer and players choices and increments variables based on the results. */
 function game () {
     computer= getComputerChoice();
     player= getPlayerChoice();
@@ -89,13 +90,14 @@ function game () {
     }
 }
 
+/* function for the score of the game using the variables in the main game logic */
 function gamescore() {
     if (count>= 5) {
         console.log("Computer: "+ computerScore + " You: "+ playerScore + " Tied: "+tie+ " times");
     }
 
 }
-
+/* Without looping, plays 5 games.  After each game it displays the string that is returned from the main game logic notifying user of who won.  Then calls the gamescore function to give results */
 game();
 console.log(string);
 game();
